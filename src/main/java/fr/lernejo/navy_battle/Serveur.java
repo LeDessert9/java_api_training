@@ -9,12 +9,10 @@ import java.util.concurrent.Executors;
 public class Serveur {
     final HttpServer httpServer;
     Serveur(int port) throws IOException {
-
         this.httpServer = HttpServer.create(new InetSocketAddress(port), 0);
         this.httpServer.setExecutor(Executors.newSingleThreadExecutor());
-
-        this.httpServer.createContext("/ping", new CallHandler());
-        this.httpServer.createContext("/api/game/start", new PostHandler(port));
+        this.httpServer.createContext("/ping", new PingHandler());
+        this.httpServer.createContext("/api/game/start", new Handler(port));
         this.httpServer.start();
     }
 }
