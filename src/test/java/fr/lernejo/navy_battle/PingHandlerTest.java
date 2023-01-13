@@ -11,7 +11,7 @@ import java.net.URI;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CallHandlerTest {
+class PingHandlerTest {
     @Test
     void testOfPing() throws IOException, InterruptedException {
 
